@@ -7,5 +7,13 @@ module V1::Spoonacular
       tags = { "include-tags" => diet }
       response = Request.call("/random", tags)
     end
+    def self.find_by_ingredients(ingredient_csv)
+      options = { "ingredients" => ingredient_csv }
+      response = Request.call("/findByIngredients", options)
+    end
+    def self.intolerances(intolerance_csv)
+      options = { "intolerances" => intolerance_csv }
+      response = Request.call("/complexSearch", options)
+    end
   end
 end

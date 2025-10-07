@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       namespace :spoonacular do
         get "/random", to: "spoonacular#get_random"
         get "/diet/:diet", to: "spoonacular#get_diet_friendly"
+        get "/findByIngredients/:ingredients", to: "spoonacular#get_find_by_ingredients"
+        get "/intolerances/:intolerances", to: "spoonacular#get_find_by_intolerances"
       end
     end
   end
