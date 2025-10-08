@@ -1,7 +1,6 @@
 # Rails API Wrapper Project
 
-Avion Bootcamp Project
-Created an API Wrapper for the Spoonacular API : https://spoonacular.com/food-api
+Avion Bootcamp Project; Created an API Wrapper for the Spoonacular API : https://spoonacular.com/food-api
 
 ## Required Gems
 - httparty
