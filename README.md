@@ -168,7 +168,7 @@ api/v1/spoonacular/random/i/vegetarian/e/dairy
 ...
 ```
 
-### 5. Search Recipe by Ingredient
+### 6. Search Recipe by Ingredient
 
 ```http
   GET api/v1/spoonacular/findByIngredients/:ingredients
