@@ -3,11 +3,11 @@ module V1::Spoonacular
     def self.map(code)
       case code
       when 404
-        return "Not Found"
+        "Not Found"
       when 401
-        return "Unauthorized"
+        "Unauthorized"
       else
-        return "Try Again"
+        "Try Again"
       end
     end
   end

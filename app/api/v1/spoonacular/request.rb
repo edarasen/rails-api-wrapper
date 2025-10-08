@@ -16,9 +16,9 @@ module V1::Spoonacular
           response = get("#{endpoint}", headers: headers)
         end
         if !response.success?
-          response = {error: response.code, data: Errors.map(response.code)}
+          response = { error: response.code, data: Errors.map(response.code) }
         end
-        return response
+        response
       rescue HTTParty::Error => e
         { error: e.message, status: :bad_request }
       rescue StandardError => e

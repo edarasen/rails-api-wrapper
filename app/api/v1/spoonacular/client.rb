@@ -10,11 +10,11 @@ module V1::Spoonacular
     def self.nutrition_info(id)
       response = Request.call("/#{id}/nutritionWidget.json")
     end
-    def self.similar_recipes(id, number=1)
+    def self.similar_recipes(id, number = 1)
       options = { "number" => number }
       response = Request.call("/#{id}/similar", options)
     end
-    def self.random(include_tags={}, exclude_tags={})
+    def self.random(include_tags = {}, exclude_tags = {})
       options = { "include-tags" => include_tags, "exclude-tags" => exclude_tags }
       response = Request.call("/random", options)
     end
