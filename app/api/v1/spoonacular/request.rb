@@ -7,11 +7,22 @@ module V1::Spoonacular
       { "x-api-key" => ENV["SPOON_API_KEY"] }
     end
     def self.call(endpoint, options = {})
-      headers = self.get_headers
-      if !options.empty?
-        get("#{endpoint}", headers: headers, query: options)
-      else
-        get("#{endpoint}", headers: headers)
+      begin
+        response = {}
+        headers = self.get_headers
+        if !options.empty?
+          response = get("#{endpoint}", headers: headers, query: options)
+        else
+          response = get("#{endpoint}", headers: headers)
+        end
+        if !response.success?
+          response = {error: response.code, data: Errors.map(response.code)}
+        end
+        return response
+      rescue HTTParty::Error => e
+        { error: e.message, status: :bad_request }
+      rescue StandardError => e
+        { error: e.message, status: :bad_gateway }
       end
     end
   end
